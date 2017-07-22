@@ -6,7 +6,6 @@
 *.exe
 *.o
 *.so
-*.pyc
 
 # Packages #
 ############
@@ -39,3 +38,16 @@ tmtagsHistory
 *.sublime-project
 *.sublime-workspace
 .bundle
+Models/
+NeuralNetwork.py
+TreeViews/
+__pycache__/
+moveTree0.txt
+moveTree1.txt
+moveTree2.txt
+moveTree3.txt
+moveTree4.txt
+moveTree5.txt
+moveTree7.txt
+obrazki
+temp.txt

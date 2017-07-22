@@ -4,11 +4,9 @@
 import pygame
 import sys
 import SoundService
-from AbstractStrategy import AbstractStrategy
 from Coordinates import Coordinates
 from Config import DIMENSION, BOX_LENGTH, SMALL_BOX_LENGTH, SPACE_LENGTH, LEFT_MOUSE, POS_X, POS_Y, EMPTY, CIRCLE, CROSS
 from MinMaxStrategy import MinMaxStrategy
-from NeuralNetwork import NeuralNetwork
 from View import View
 from MapMatrix import MapMatrix
 
@@ -18,8 +16,6 @@ def main():
     view = View()
     view.draw(gameMatrix.matrix)
     ai = MinMaxStrategy(gameMatrix)
-    # ai.strategy = NeuralNetwork(gameMatrix, miniMax)
-    # ai.strategy.doBestMove(gameMatrix)
     view.draw(gameMatrix.matrix)
     while True:
         i = pygame.event.wait()

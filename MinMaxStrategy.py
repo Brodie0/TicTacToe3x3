@@ -17,34 +17,14 @@ class MinMaxStrategy(AbstractStrategy):
                     moves += 1
         return moves
 
-    @staticmethod
-    def validateBestMove(bestmove):
-        if bestmove is None:
-            print("BestMove jest None-> co oznacza że fcja minimax została włączona gdy nie było wolnego miejsca na mapie")
-
-    def doBestMoveNN(self, currentMapMatrix, turn='ai'):
-        self.mapMatrix = currentMapMatrix
-        self.movesDone = self.countMovesDone()
-        print("MOVESDONE: ", self.movesDone)
-        with open(f'temp.txt', 'w') as file:
-            bestmove, bestscore = self.minMaxPrintNodes(DEPTH - self.movesDone, "", file, -float('Inf'), float('Inf'), turn)
-        print(f"MINMAX + ALFABETA MACNĄł {self.nodesCheck} WĘZłÓW")
-        self.nodesCheck = 0
-        self.validateBestMove(bestmove)
-        return bestmove
-
     def doBestMove(self, currentMapMatrix, turn='ai'):
         self.mapMatrix = currentMapMatrix
         self.movesDone = self.countMovesDone()
-        print("MOVESDONE: ", self.movesDone)
-        with open(f'moveTree{self.movesDone}.txt', 'w') as file:
+        with open(f'TreeViews/moveTree{self.movesDone}.txt', 'w') as file:
             bestmove, bestscore = self.minMaxPrintNodes(DEPTH - self.movesDone, "", file, -float('Inf'), float('Inf'), turn)
-        print(f"MINMAX + ALFABETA DOTKNĄL {self.nodesCheck} WĘZłÓW")
         self.nodesCheck = 0
         temp, temp1 = self.minMax(DEPTH - self.movesDone)
-        print(f" SAM MINMAX DOTNKAL {self.nodesCheck} WĘZłÓW")
         self.nodesCheck = 0
-        self.validateBestMove(bestmove)
         self.mapMatrix.markCircleOn(bestmove)
         return bestmove
 
